@@ -1,0 +1,53 @@
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+.box-container {
+  display: grid;
+  /* gap: 10px; */
+  grid-template-columns: 2fr 1fr;
+  height: 7em;
+  margin: auto;
+  /* outline: solid red; */
+  padding: 10px;
+  width: 300px;
+}
+
+.box {
+  display: grid;
+  /* outline: solid greenyellow; */
+  border-bottom: solid grey 1px;
+  font-size: 1.2em;
+}
+
+.box:nth-child(even) {
+  font-weight: bold;
+}
+
+#riffdisplay {
+  border: solid grey 2px;
+  border-radius: 10px;
+  display: block;
+  font-family: monospace;
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+button {
+  display: block;
+  font-size: 2rem;
+  margin: 20px auto;
+}
+
+.main-div {
+  margin: auto;
+
+  width: 25%;
+  outline: solid blueviolet;
+}
+
+.displaybox {
+  width: auto;
+}
