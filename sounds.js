@@ -91,4 +91,13 @@ function play(chosen) {
     audio.play();
 }
 
-let riffi = [0, "‒", "‒", "‒", 7, 7, ".", ".", ".", 4, ".", 6, ".", 4, "‒", 1];
+// let riffi = [0, 3, 5, 2, 7, 7, 5, 3, 0, 4, 5, 6, 1, 4, 0, 1];
+let tempo = 300;
+
+function soitto(riffi) {
+    for (let i = 0; i < 16; i++) {
+        if (isNaN(riffi[i])) riffi[i] = 0;
+        setTimeout(() => play(riffi[i]), tempo*i)
+        console.log(i)
+    }
+}

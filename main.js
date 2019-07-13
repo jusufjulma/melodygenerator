@@ -29,6 +29,7 @@ function riffitys(range) {
 function showRiffi(riffi) {
   riffi = riffitys(7)
   display.innerHTML = riffi.join(' ');
+  soitto(riffi);
 }
 
 showRiffi();
