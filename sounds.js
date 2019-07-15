@@ -100,11 +100,11 @@ function play(chosen) {
 }
 
 // let riffi = [0, 3, 5, 2, 7, 7, 5, 3, 0, 4, 5, 6, 1, 4, 0, 1];
-let tempo = 240;
+let tempo = 300;
 
 function soitto(riffi) {
     let playSequence = noteCheck(riffi);
-    console.log(playSequence);
+    // console.log(playSequence);
     let noteLength = 1;
     let timeKeeper = 0;
     for (let i = 0; i < playSequence.length; i++) {
@@ -123,9 +123,9 @@ function noteCheck(riffi) {
         if (riffi[i] == '.') parsedRiff.push('.');
         else if (!isNaN(riffi[i]) && !isNaN(riffi[i+1])) parsedRiff.push(riffi[i])
         else if (!isNaN(riffi[i]) && riffi[i+1] === '.') parsedRiff.push(riffi[i])
-        else if (!isNaN(riffi[i]) && riffi[i+1] === '-' && riffi[i+2] === '-' && riffi[i+3] === '-') parsedRiff.push(riffi[i]+48)
-        else if (!isNaN(riffi[i]) && riffi[i+1] === '-' && riffi[i+2] === '-') parsedRiff.push(riffi[i]+24, '.')
-        else if (!isNaN(riffi[i]) && riffi[i+1] === '-') parsedRiff.push(riffi[i]+24)
+        else if (!isNaN(riffi[i]) && riffi[i+1] === '‒' && riffi[i+2] === '‒' && riffi[i+3] === '‒') parsedRiff.push(riffi[i]+48)
+        else if (!isNaN(riffi[i]) && riffi[i+1] === '‒' && riffi[i+2] === '‒') parsedRiff.push(riffi[i]+24, '.')
+        else if (!isNaN(riffi[i]) && riffi[i+1] === '‒') parsedRiff.push(riffi[i]+24)
         else if (!isNaN(riffi[i]) && riffi[i+1] == null) parsedRiff.push(riffi[i])
     }
 
