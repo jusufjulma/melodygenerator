@@ -81,23 +81,54 @@ let sounds = [
  */
 
 let testinappi = document.getElementById('soita');
+testinappi.addEventListener('mouseup', () => play(Math.floor(Math.random()*72)));
 
-kulli = () => Math.floor(Math.random()*72)
+function soundLoader() {
+    console.log("ASDASD");
+    for (i = 0; i < sounds.length; i++) {
+        let loader = new Audio(`sounds/${sounds[i]}`);
+        console.log(loader);
+        
+    }
+}
 
-testinappi.addEventListener('mouseup', () => play(kulli()));
+soundLoader();
 
 function play(chosen) {
+    if (chosen == '.') return;
     let audio = new Audio(`sounds/${sounds[chosen]}`);
     audio.play();
 }
 
 // let riffi = [0, 3, 5, 2, 7, 7, 5, 3, 0, 4, 5, 6, 1, 4, 0, 1];
-let tempo = 300;
+let tempo = 120;
 
 function soitto(riffi) {
-    for (let i = 0; i < 16; i++) {
-        if (isNaN(riffi[i])) riffi[i] = 0;
-        setTimeout(() => play(riffi[i]), tempo*i)
-        console.log(i)
+    let playSequence = noteCheck(riffi);
+    console.log(playSequence);
+    let noteLength = 1;
+    let timeKeeper = 0;
+    for (let i = 0; i < playSequence.length; i++) {
+        if (playSequence[i] > 23) noteLength = 2;
+        else if (playSequence[i] > 47) noteLength = 4;
+        setTimeout(() => play(playSequence[i]), timeKeeper)
+        timeKeeper += tempo*noteLength;
+        console.log(i, playSequence[i], timeKeeper);
+        noteLength = 1;
     }
+}
+
+function noteCheck(riffi) {
+    let parsedRiff = [];
+    for (let i = 0; i < riffi.length+5; i++) {
+        if (riffi[i] == '.') parsedRiff.push('.');
+        else if (!isNaN(riffi[i]) && !isNaN(riffi[i+1])) parsedRiff.push(riffi[i])
+        else if (!isNaN(riffi[i]) && riffi[i+1] === '.') parsedRiff.push(riffi[i])
+        else if (!isNaN(riffi[i]) && riffi[i+1] === '-' && riffi[i+2] === '-' && riffi[i+3] === '-') parsedRiff.push(riffi[i]+48)
+        else if (!isNaN(riffi[i]) && riffi[i+1] === '-' && riffi[i+2] === '-') parsedRiff.push(riffi[i]+24, '.')
+        else if (!isNaN(riffi[i]) && riffi[i+1] === '-') parsedRiff.push(riffi[i]+24)
+        else if (!isNaN(riffi[i]) && riffi[i+1] == null) parsedRiff.push(riffi[i])
+    }
+
+    return parsedRiff;
 }

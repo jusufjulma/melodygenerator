@@ -43,8 +43,7 @@ button {
 
 .main-div {
   margin: auto;
-
-  width: 25%;
+  width: 600px;
   outline: solid blueviolet;
 }
 
