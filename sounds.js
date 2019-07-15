@@ -84,11 +84,10 @@ let testinappi = document.getElementById('soita');
 testinappi.addEventListener('mouseup', () => play(Math.floor(Math.random()*72)));
 
 function soundLoader() {
-    console.log("ASDASD");
+    // console.log("ASDASD");
     for (i = 0; i < sounds.length; i++) {
         let loader = new Audio(`sounds/${sounds[i]}`);
-        console.log(loader);
-        
+        // console.log(loader);
     }
 }
 
@@ -113,14 +112,14 @@ function soitto(riffi) {
         else if (playSequence[i] > 47) noteLength = 4;
         setTimeout(() => play(playSequence[i]), timeKeeper)
         timeKeeper += tempo*noteLength;
-        console.log(i, playSequence[i], timeKeeper);
+        // console.log(i, playSequence[i], timeKeeper);
         noteLength = 1;
     }
 }
 
 function noteCheck(riffi) {
     let parsedRiff = [];
-    for (let i = 0; i < riffi.length+5; i++) {
+    for (let i = 0; i < riffi.length; i++) {
         if (riffi[i] == '.') parsedRiff.push('.');
         else if (!isNaN(riffi[i]) && !isNaN(riffi[i+1])) parsedRiff.push(riffi[i])
         else if (!isNaN(riffi[i]) && riffi[i+1] === '.') parsedRiff.push(riffi[i])
