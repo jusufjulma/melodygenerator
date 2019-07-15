@@ -101,7 +101,7 @@ function play(chosen) {
 }
 
 // let riffi = [0, 3, 5, 2, 7, 7, 5, 3, 0, 4, 5, 6, 1, 4, 0, 1];
-let tempo = 120;
+let tempo = 240;
 
 function soitto(riffi) {
     let playSequence = noteCheck(riffi);
